@@ -4,7 +4,7 @@ import {
   Download, Github, ExternalLink, Terminal, Database,
   BookMarked, Mic, Building2, CreditCard, Menu, X, ChevronDown,
   GraduationCap, Presentation, BrainCircuit, Layers, CheckSquare,
-  HelpCircle, Copy, Check, Clock, Award, RefreshCw, LayoutDashboard,
+  HelpCircle, Copy, Check, Clock, Award, LayoutDashboard,
   FolderKanban, ShieldCheck, ArrowUpRight, Sparkles, Scale, Search,
   RotateCcw, CheckCircle, QrCode, Puzzle, Package, MessageCircle, Code2, FileUp,
   Milestone, Rocket, Activity, Zap
@@ -21,7 +21,7 @@ function TopAnnouncement() {
     <div className="bg-slate-900/95 border-b border-slate-800/80 text-xs py-2 px-4 text-center sticky top-0 z-50 backdrop-blur-md">
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 flex-wrap">
         <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold text-[11px] flex items-center gap-1">
-          <Sparkles className="w-3 h-3" /> v2.0 Desktop Open Source · AGPL-3.0
+          <Sparkles className="w-3 h-3" /> Desktop Open Source · AGPL-3.0
         </span>
         <span className="text-slate-300 hidden sm:inline">
           Ứng dụng Desktop mã nguồn mở miễn phí cho mọi đối tượng. Nền tảng Cloud & AI đồng bộ đa thiết bị là dịch vụ thương mại.
@@ -141,7 +141,7 @@ function Hero() {
   // VietQR mini state
   const [qrPaid, setQrPaid] = useState(false);
 
-  const quickCmd = `git clone ${GITHUB_URL} && cd anycourse-desktop/desktop && npm install && npm run build`;
+  const quickCmd = `git clone ${GITHUB_URL} && cd anycourse-desktop/packages/core-oss && npm install && cd ../../apps/desktop && npm install && npm start`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(quickCmd);
@@ -231,7 +231,7 @@ function Hero() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                <span className="ml-2 text-xs text-slate-400 font-mono hidden sm:inline">AnyCourse Desktop v2.0 (SQLite Local DB)</span>
+                <span className="ml-2 text-xs text-slate-400 font-mono hidden sm:inline">AnyCourse Desktop (SQLite Local DB · AGPL-3.0)</span>
               </div>
 
               {/* Interactive Screen Tabs */}
@@ -1291,9 +1291,16 @@ function PluginsSection() {
                   <div className="text-slate-400">Bong bóng chat nổi mọi trang, typing indicator, bot phản hồi.</div>
                 </div>
               </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">🖊️</span>
+                <div>
+                  <div className="font-bold text-slate-200">Bảng Trắng Whiteboard</div>
+                  <div className="text-slate-400">Bút/highlighter/tẩy, hình khối, undo/redo, mẫu kẻ dòng kẻ ô — xuất PNG.</div>
+                </div>
+              </li>
             </ul>
             <a
-              href={GITHUB_URL + '/blob/master/docs/PLUGINS.md'}
+              href={GITHUB_URL + '/blob/main/packages/core-oss/docs/PLUGINS.md'}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 transition"
@@ -1312,64 +1319,52 @@ function PluginsSection() {
    8. DESKTOP APP DOWNLOAD SECTION
    ═══════════════════════════════════════════════════════════════ */
 function DesktopDownloadSection() {
-  const [downloading, setDownloading] = useState(false);
-
-  const handleDownload = () => {
-    setDownloading(true);
-    setTimeout(() => {
-      setDownloading(false);
-      alert('Bộ cài đặt AnyCourse-Setup-0.1.0.exe đã sẵn sàng trong thư mục desktop/release/ của kho mã nguồn.');
-    }, 1200);
-  };
-
   return (
     <section id="desktop" className="py-20 border-b border-slate-800/80 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="surface-card rounded-3xl p-8 sm:p-12 border border-slate-800 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
+
             <div className="lg:col-span-8 space-y-4 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest">
                 <Laptop className="w-3.5 h-3.5" /> Desktop Standalone Edition
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-                Tải AnyCourse Desktop Cho Windows
+                Tải AnyCourse Desktop
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed max-w-2xl">
                 Ứng dụng desktop độc lập hoàn toàn, chạy trực tiếp trên file SQLite nội bộ. Không cần cài đặt máy chủ phức tạp, mở lên là dạy và học ngay không phụ thuộc đường truyền internet.
               </p>
-              
+
               <div className="flex flex-wrap gap-3 pt-2 text-xs text-slate-400">
                 <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-mono">
-                  ✓ Windows 10/11 64-bit (.exe installer)
+                  ✓ Windows 10/11 64-bit (NSIS .exe)
                 </span>
                 <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-mono">
-                  ✓ Dung lượng: ~109 MB (NSIS Package)
+                  ✓ Linux (AppImage · .deb · .tar.gz)
+                </span>
+                <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-mono">
+                  ✓ macOS (.dmg x64 &amp; arm64)
                 </span>
                 <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 font-mono">
                   ✓ Miễn phí 100% cho cá nhân & giáo viên
                 </span>
               </div>
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                Bộ cài được build tự động bởi GitHub Actions trên cả ba nền tảng. Bản macOS chưa ký số — lần đầu mở bằng chuột phải → Open. Chưa thấy bản build phù hợp? <a href="#deploy" className="text-blue-400 hover:underline">Tự đóng gói từ mã nguồn trong vài phút</a>.
+              </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col items-center lg:items-end gap-3">
-              <button
-                onClick={handleDownload}
-                disabled={downloading}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2.5 disabled:opacity-75"
+              <a
+                href={GITHUB_URL + '/releases'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2.5"
               >
-                {downloading ? (
-                  <>
-                    <RefreshCw className="w-5 h-5 animate-spin" />
-                    <span>Đang chuẩn bị gói cài đặt...</span>
-                  </>
-                ) : (
-                  <>
-                    <Download className="w-5 h-5" />
-                    <span>Tải Về Miễn Phí (.exe)</span>
-                  </>
-                )}
-              </button>
+                <Download className="w-5 h-5" />
+                <span>Tải Từ GitHub Releases</span>
+              </a>
               <div className="text-[11px] text-slate-400 text-center lg:text-right">
                 Phiên bản v0.1.0 · Mã nguồn mở AGPL-3.0
               </div>
@@ -1533,34 +1528,36 @@ function LicenseSection() {
    10. DEPLOYMENT & QUICKSTART HUB
    ═══════════════════════════════════════════════════════════════ */
 function DeploymentSection() {
-  const [activeTab, setActiveTab] = useState<'desktop' | 'source' | 'docker' | 'cloud'>('desktop');
+  const [activeTab, setActiveTab] = useState<'desktop' | 'source' | 'releases' | 'cloud'>('desktop');
   const [copied, setCopied] = useState(false);
 
   const snippets = {
-    desktop: `# Tải bộ cài đặt NSIS đóng gói sẵn cho Windows:
-# File: AnyCourse-Setup-0.1.0.exe (~109 MB)
-# Yêu cầu hệ thống: Windows 10/11 64-bit
-# Tích hợp sẵn SQLite cục bộ, không cần cài đặt Node.js hay DB server.`,
-    source: `# 1. Clone kho mã nguồn mở AGPL-3.0:
+    desktop: `# Tải bộ cài đặt đóng gói sẵn từ GitHub Releases:
+# Windows : AnyCourse-Setup-0.1.0.exe (NSIS)
+# Linux   : AppImage + .deb + .tar.gz portable
+# macOS   : .dmg + .zip (x64 & arm64)
+# Tích hợp sẵn SQLite cục bộ, không cần cài Node.js hay DB server.`,
+    source: `# 1. Clone kho mã nguồn mở AGPL-3.0 (cần Node.js 20+):
 git clone https://github.com/anycoursevn/anycourse-desktop.git
 cd anycourse-desktop
 
-# 2. Cài đặt dependencies cho frontend & desktop wrapper:
-cd anycourse-frontend && npm install
-cd ../desktop && npm install
+# 2. Cài dependencies — payload (SPA + local server) trước, shell sau:
+cd packages/core-oss && npm install
+cd ../../apps/desktop && npm install
 
-# 3. Chạy ở chế độ phát triển hoặc đóng gói installer:
-npm run dev
-npm run build && npm run dist`,
-    docker: `# Triển khai production stack với Docker Compose:
-git clone https://github.com/anycoursevn/anycourse-desktop.git
-cd anycourse-desktop
-cp .env.example .env
+# 3. Chạy app (Electron nạp payload trực tiếp, không cần build):
+npm start
 
-# Khởi chạy toàn bộ hệ thống Web & Backend:
-docker compose up -d
+# 4. Đóng gói installer cho nền tảng tương ứng:
+npm run dist:win    # hoặc dist:linux / dist:mac`,
+    releases: `# Installer do GitHub Actions tự build trên 3 nền tảng native
+# (windows-latest / ubuntu-latest / macos-latest) mỗi khi push tag v*:
+git tag v0.1.0 && git push origin v0.1.0
+# → CI build, chạy smoke test bản đóng gói và draft Release kèm artifact.
 
-# Truy cập tại: http://localhost:3000`,
+# Bản macOS chưa ký số (chưa có Apple Developer cert):
+# lần đầu mở bằng chuột phải → Open, hoặc:
+xattr -dr com.apple.quarantine AnyCourse.app`,
     cloud: `# Nền tảng Pro Managed Cloud do AnyCourse vận hành:
 # Truy cập cổng đăng ký: https://app.anycourse.vn
 # Hoặc liên hệ triển khai cho tổ chức: support@anycourse.vn
@@ -1592,9 +1589,9 @@ docker compose up -d
         {/* Tab Selector */}
         <div className="flex flex-wrap justify-center gap-2">
           {[
-            { id: 'desktop' as const, label: 'Bản Cài Đặt Desktop (.exe)' },
+            { id: 'desktop' as const, label: 'Bản Cài Đặt Desktop' },
             { id: 'source' as const, label: 'Build Từ Mã Nguồn Git' },
-            { id: 'docker' as const, label: 'Docker Compose' },
+            { id: 'releases' as const, label: 'CI Release 3 Nền Tảng' },
             { id: 'cloud' as const, label: 'Pro Managed Cloud' },
           ].map((tab) => (
             <button
@@ -1642,7 +1639,7 @@ docker compose up -d
    10.5. REALISTIC ROADMAP & AUDIT SECTION (LỘ TRÌNH TÍNH NĂNG CHI TIẾT)
    ═══════════════════════════════════════════════════════════════ */
 function RoadmapSection() {
-  const [activePhase, setActivePhase] = useState<'all' | 'phase1' | 'phase2' | 'phase3' | 'phase4'>('all');
+  const [activePhase, setActivePhase] = useState<'all' | 'phase1' | 'phase2' | 'phase2b' | 'phase3' | 'phase4'>('all');
 
   const roadmapData = [
     {
@@ -1732,6 +1729,52 @@ function RoadmapSection() {
       ]
     },
     {
+      phase: 'phase2b',
+      title: 'Giai Đoạn 2b: Desktop Local-First & Hệ Sinh Thái Mở',
+      badge: 'Hoàn Tất (2026-09)',
+      status: 'completed',
+      timeline: 'Đã nghiệm thu (2026-09)',
+      desc: 'Đưa Desktop thành smart client offline-first thật sự: lớp học không cần máy chủ, plugin SDK, đồng bộ nền và đóng gói đa nền tảng có CI.',
+      items: [
+        {
+          name: 'Lớp Học Host Sharing (máy giáo viên = máy chủ)',
+          status: 'done',
+          percent: 100,
+          detail: 'Giáo viên host lớp ngay trên máy mình: học viên vào bằng link mời / QR / LAN beacon không cần cài đặt; ma trận phân quyền 25/25 tình huống được kiểm thử tự động.'
+        },
+        {
+          name: 'Internet Tunnel Zero-Config cho lớp online',
+          status: 'done',
+          percent: 100,
+          detail: 'cloudflared tự tải + watchdog tự heal khi gãy; sức chứa thực nghiệm 100-300 học viên cho quiz/nội dung văn bản; hiển thị badge nhà cung cấp tunnel ngay trong panel chia sẻ.'
+        },
+        {
+          name: 'Plugin SDK v1 + Kho Plugin trong ứng dụng',
+          status: 'done',
+          percent: 100,
+          detail: 'Sandbox iframe cách ly, 3 slot (tool / dashboard-widget / floating), import-export .acplugin.json, store từ xa ký số ed25519; 4 plugin first-party (Pomodoro, Cân bằng hoá học, Chat demo, Bảng trắng).'
+        },
+        {
+          name: 'Đồng Bộ Offline-First Thật (Sync IPC)',
+          status: 'done',
+          percent: 90,
+          detail: 'Sync IPC main-process ↔ server, dict cache dùng offline, scheduler jobs nền và setup wizard /setup cho thiết bị mới; upload cloud còn trong lộ trình.'
+        },
+        {
+          name: 'Đóng Gói Đa Nền Tảng + CI Release 3-OS',
+          status: 'done',
+          percent: 100,
+          detail: 'Windows NSIS, Linux AppImage/.deb/.tar.gz, macOS dmg/zip (x64+arm64); push tag v* → GitHub Actions build trên runner native, smoke test bản đóng gói và draft Release tự động.'
+        },
+        {
+          name: 'Xuất Bản GitHub Tổ Chức anycoursevn',
+          status: 'done',
+          percent: 100,
+          detail: '3 repo: anycourse-desktop (AGPL public), anycourse-platform (private), anycourse-home; guard tự động check-boundary giữ ranh giới core/SaaS trước mỗi lần export.'
+        }
+      ]
+    },
+    {
       phase: 'phase3',
       title: 'Giai Đoạn 3: Triển Khai Cloud VPS & Pilot Trung Tâm Thật',
       badge: '15% Kế Hoạch',
@@ -1809,7 +1852,7 @@ function RoadmapSection() {
             Lộ Trình Tính Năng Chi Tiết (Roadmap)
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Báo cáo thẩm định kỹ thuật sâu từ mã nguồn thật: <strong className="text-white">Tiến độ tổng thể đạt ~55%</strong>, trong đó <strong className="text-emerald-400">70% phân hệ cốt lõi đã chạy dữ liệu thật 100%</strong> (Zero-Mock).
+            Báo cáo thẩm định kỹ thuật sâu từ mã nguồn thật: <strong className="text-white">Tiến độ tổng thể đạt ~65%</strong>, trong đó <strong className="text-emerald-400">70% phân hệ cốt lõi đã chạy dữ liệu thật 100%</strong> (Zero-Mock) và <strong className="text-emerald-400">giai đoạn Local-First Desktop đã nghiệm thu 2026-09</strong>.
           </p>
         </div>
 
@@ -1819,8 +1862,8 @@ function RoadmapSection() {
             <div>
               <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Tiến Độ Dự Án Tổng Thể</div>
               <div className="text-2xl font-black text-white flex items-center gap-2">
-                <span>55% Hoàn Thiện</span>
-                <span className="text-xs font-normal text-slate-400">(4 Phân kỳ phát triển)</span>
+                <span>65% Hoàn Thiện</span>
+                <span className="text-xs font-normal text-slate-400">(5 phân kỳ phát triển)</span>
               </div>
             </div>
             
@@ -1839,10 +1882,10 @@ function RoadmapSection() {
 
           {/* Progress Stack Bar */}
           <div className="h-3 w-full bg-slate-900 rounded-full overflow-hidden flex border border-slate-800">
-            <div className="bg-emerald-500 h-full transition-all" style={{ width: '45%' }} title="Đã xong 100% chạy thật" />
-            <div className="bg-amber-500 h-full transition-all" style={{ width: '20%' }} title="Đang hoàn thiện Giai đoạn 2" />
-            <div className="bg-blue-500/40 h-full transition-all" style={{ width: '20%' }} title="Kế hoạch Giai đoạn 3" />
-            <div className="bg-slate-800 h-full transition-all" style={{ width: '15%' }} title="Kế hoạch Giai đoạn 4" />
+            <div className="bg-emerald-500 h-full transition-all" style={{ width: '60%' }} title="Đã xong 100% chạy thật" />
+            <div className="bg-amber-500 h-full transition-all" style={{ width: '15%' }} title="Đang hoàn thiện Giai đoạn 2" />
+            <div className="bg-blue-500/40 h-full transition-all" style={{ width: '15%' }} title="Kế hoạch Giai đoạn 3" />
+            <div className="bg-slate-800 h-full transition-all" style={{ width: '10%' }} title="Kế hoạch Giai đoạn 4" />
           </div>
 
           {/* 4 Stats Grid */}
@@ -1850,7 +1893,7 @@ function RoadmapSection() {
             <div className="space-y-1">
               <span className="text-slate-400">Kiểm thử tự động:</span>
               <div className="font-bold text-emerald-400 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" /> 39/39 Unit & API Tests Passed
+                <CheckCircle2 className="w-3.5 h-3.5" /> 301 check backend · 27 E2E · 18 .NET
               </div>
             </div>
             <div className="space-y-1">
@@ -1877,9 +1920,10 @@ function RoadmapSection() {
         {/* Phase Filter Tabs */}
         <div className="flex items-center justify-center gap-2 flex-wrap">
           {[
-            { id: 'all' as const, label: 'Tất Cả 4 Giai Đoạn' },
+            { id: 'all' as const, label: 'Tất Cả 5 Giai Đoạn' },
             { id: 'phase1' as const, label: 'Giai Đoạn 1 (100% Xong)' },
             { id: 'phase2' as const, label: 'Giai Đoạn 2 (50% Đang Làm)' },
+            { id: 'phase2b' as const, label: 'Giai Đoạn 2b (Local-First ✓)' },
             { id: 'phase3' as const, label: 'Giai Đoạn 3 (Cloud VPS)' },
             { id: 'phase4' as const, label: 'Giai Đoạn 4 (Mobile Native)' },
           ].map((tab) => (
@@ -1975,9 +2019,9 @@ function RoadmapSection() {
               <Zap className="w-4 h-4" /> Kế Hoạch Hành Động Ưu Tiên Tiếp Theo (Next Sprints)
             </div>
             <div className="text-sm text-slate-200">
-              1. <strong>Sprint 1</strong>: Webhook Casso/SeAPay thu học phí tự động &rarr; 
-              2. <strong>Sprint 2</strong>: Deploy Cloud VPS Staging & Domain SSL &rarr; 
-              3. <strong>Sprint 3</strong>: Pilot Onboarding trung tâm đối tác thực địa.
+              1. <strong>Sprint 1</strong>: Webhook Casso/SeAPay thu học phí tự động &amp; hóa đơn VAT &rarr;
+              2. <strong>Sprint 2</strong>: Deploy Cloud VPS Staging, Domain SSL &amp; Pilot trung tâm đối tác &rarr;
+              3. <strong>Sprint 3</strong>: Ký số installer (EV/OV) + AI Cloud proxy theo quota org.
             </div>
           </div>
           <a

@@ -4,7 +4,7 @@ Landing page độc lập phục vụ giới thiệu, quảng bá sản phẩm, 
 
 ## ⚖️ Chính Sách Giấy Phép & Quyền Sử Dụng
 
-- **Desktop App — Open Source (AGPL-3.0)**: ứng dụng Desktop (kèm payload SPA + local SQLite server) miễn phí 100% cho **mọi đối tượng và mục đích** — cá nhân, giáo viên, trung tâm, kể cả lớp học thu phí. Nghĩa vụ duy nhất khi phân phối lại bản sửa đổi: kèm mã nguồn theo AGPL-3.0. Repo công khai: `phuongfullstack/anycourse-desktop`.
+- **Desktop App — Open Source (AGPL-3.0)**: ứng dụng Desktop (kèm payload SPA + local SQLite server) miễn phí 100% cho **mọi đối tượng và mục đích** — cá nhân, giáo viên, trung tâm, kể cả lớp học thu phí. Nghĩa vụ duy nhất khi phân phối lại bản sửa đổi: kèm mã nguồn theo AGPL-3.0. Repo công khai: `anycoursevn/anycourse-desktop`.
 - **Cloud Platform & Web — Thương Mại**: nền tảng web-cloud do AnyCourse vận hành (đồng bộ đa thiết bị, AI Speaking/Writing theo quota, quản lý tổ chức, white-label) thuộc gói **Pro Managed Cloud** hoặc **Commercial License**.
 - **Phần còn lại của monorepo** (`.NET backend`, docker production stack, landing) là **proprietary** — xem `../LICENSE` ở root.
 
