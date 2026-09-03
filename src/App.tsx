@@ -1062,9 +1062,9 @@ function FeaturesSection() {
             <div className="p-2.5 rounded-xl bg-fuchsia-600/10 text-fuchsia-400 border border-fuchsia-500/20 w-fit">
               <Puzzle className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">Plugin Dock & Từ Điển Offline</h3>
+            <h3 className="text-lg font-bold text-white">Plugin Dock & AnyDict Offline</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              7 plugin cộng đồng chạy sandbox: bôi đen từ bất kỳ đâu để tra ngay — Từ điển Anh–Việt 2.000 từ offline (IPA + phát âm) và Từ điển Hán Ngữ HSK 3.0 đầy đủ 11.092 từ + 214 bộ thủ kèm Hán–Việt, không cần internet.
+              6 plugin cộng đồng chạy sandbox: bôi đen chữ bất kỳ đâu để tra ngay — AnyDict tự nhận diện ngôn ngữ: từ điển Anh–Việt 2.000 từ offline (IPA + phát âm), tiếng Trung 11.092 từ HSK 3.0 + 214 bộ thủ kèm Hán–Việt, và dịch tự do 10+ ngôn ngữ qua AI/MyMemory.
             </p>
           </div>
 
@@ -1329,15 +1329,8 @@ function PluginsSection() {
               <li className="flex items-start gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">📖</span>
                 <div>
-                  <div className="font-bold text-slate-200">Từ Điển AnyCourse (Anh–Việt)</div>
-                  <div className="text-slate-400">Bôi đen tra nhanh: 2.000 từ offline kèm IPA + phát âm; ngoài lõi tra AI BYOK/MyMemory.</div>
-                </div>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">🀄</span>
-                <div>
-                  <div className="font-bold text-slate-200">Từ Điền Hán Ngữ (HSK 3.0)</div>
-                  <div className="text-slate-400">11.092 từ HSK 1–9 + 214 bộ thủ Thiều Chửu + Hán–Việt — offline 100%.</div>
+                  <div className="font-bold text-slate-200">AnyDict — Từ điển & Dịch thuật</div>
+                  <div className="text-slate-400">Bôi đen tra nhanh, tự nhận diện ngôn ngữ: 2.000 từ Anh–Việt offline kèm IPA + phát âm; tiếng Trung 11.092 từ HSK 1–9 + 214 bộ thủ + Hán–Việt offline 100%; dịch tự do 10+ ngôn ngữ qua AI BYOK/MyMemory; sổ từ + ôn tập spaced repetition.</div>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -1801,10 +1794,10 @@ function RoadmapSection() {
           detail: 'cloudflared tự tải + watchdog tự heal khi gãy; sức chứa thực nghiệm 100-300 học viên cho quiz/nội dung văn bản; hiển thị badge nhà cung cấp tunnel ngay trong panel chia sẻ.'
         },
         {
-          name: 'Plugin SDK v1 + Dock Toàn App + 7 Plugin Cộng Đồng',
+          name: 'Plugin SDK v1 + Dock Toàn App + 6 Plugin Cộng Đồng',
           status: 'done',
           percent: 100,
-          detail: 'Sandbox iframe cách ly, 3 slot (tool / dashboard-widget / floating) + Plugin Dock ghim plugin dùng nhanh ở mọi trang, import-export .acplugin.json, store từ xa ký số ed25519; 7 plugin: Pomodoro, Cân bằng hoá học, Chat demo, Bảng trắng, QuizForge, Từ Điển AnyCourse (Anh–Việt offline), Từ Điền Hán Ngữ (HSK 3.0 + 214 bộ thủ, offline 100%).'
+          detail: 'Sandbox iframe cách ly, 3 slot (tool / dashboard-widget / floating) + Plugin Dock ghim plugin dùng nhanh ở mọi trang, import-export .acplugin.json, store từ xa ký số ed25519; 6 plugin: Pomodoro, Cân bằng hoá học, Chat demo, Bảng trắng, QuizForge, AnyDict (từ điển + dịch thuật đa ngôn ngữ: Anh–Việt offline 2.000 từ IPA, HSK 3.0 đầy đủ 11.092 từ + 214 bộ thủ + Hán–Việt offline 100%, dịch 10+ ngôn ngữ AI/MyMemory, sổ từ + SRS).'
         },
         {
           name: 'Đồng Bộ Offline-First Thật (Sync IPC)',
