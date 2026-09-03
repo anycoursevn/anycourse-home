@@ -167,7 +167,7 @@ function Hero() {
 
         {/* Subtitle */}
         <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
-          AnyCourse cung cấp trọn gói công cụ giảng dạy 43+ môn học, ngân hàng câu hỏi, bảng trắng số, trợ lý AI bóc tách bài giảng, cổng phụ huynh và thu học phí tự động VietQR. Hoạt động độc lập không phụ thuộc internet với SQLite nội bộ.
+          AnyCourse cung cấp trọn gói công cụ giảng dạy 43+ môn học: soạn bài rich-text kiểu Notion, trang tài liệu lồng nhau, ngân hàng câu hỏi, bảng trắng số, hệ sinh thái plugin với từ điển offline, trợ lý AI BYOK, cổng phụ huynh và thu học phí tự động VietQR. Hoạt động độc lập không phụ thuộc internet với SQLite nội bộ.
         </p>
 
         {/* CTA Buttons */}
@@ -1041,6 +1041,33 @@ function FeaturesSection() {
             </p>
           </div>
 
+          {/* Card 7: Notion-style Rich Text + Pages Workspace */}
+          <div className="surface-card rounded-2xl p-6 space-y-4 md:col-span-2">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-indigo-600/10 text-indigo-400 border border-indigo-500/20">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">Soạn Bài Rich-Text Kiểu Notion & Trang Tài Liệu Lồng Nhau</h3>
+                <p className="text-xs text-slate-400">Block editor Tiptap + slash menu + kéo-thả, dùng chung cho bài giảng / đề thi / ngân hàng câu hỏi</p>
+              </div>
+            </div>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mỗi block là một đoạn rich-text đầy đủ (đậm, nghiêng, highlight, code, link) với slash menu và toggle lồng nhau như Notion. Workspace trang dạng cây cho cả không gian cá nhân và tổ chức: 5 loại node (bài học, bài tập, đề thi, thư mục, ghi chú), ma trận chuyên cần theo trang, kéo-thả sắp xếp, chia sẻ nhánh cho đồng nghiệp hoặc phát hành link công khai tạm thời.
+            </p>
+          </div>
+
+          {/* Card 8: Plugin Dock + Offline Dictionaries */}
+          <div className="surface-card rounded-2xl p-6 space-y-4">
+            <div className="p-2.5 rounded-xl bg-fuchsia-600/10 text-fuchsia-400 border border-fuchsia-500/20 w-fit">
+              <Puzzle className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-white">Plugin Dock & Từ Điển Offline</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              7 plugin cộng đồng chạy sandbox: bôi đen từ bất kỳ đâu để tra ngay — Từ điển Anh–Việt 2.000 từ offline (IPA + phát âm) và Từ điển Hán Ngữ HSK 3.0 đầy đủ 11.092 từ + 214 bộ thủ kèm Hán–Việt, không cần internet.
+            </p>
+          </div>
+
         </div>
 
       </div>
@@ -1156,7 +1183,8 @@ function PluginsSection() {
           <p className="text-slate-400 text-sm sm:text-base">
             Viết tiện ích cộng đồng bằng một file JavaScript duy nhất, cài từ Kho plugin hoặc chia sẻ
             trực tiếp qua gói <span className="font-mono text-slate-300">.acplugin.json</span>. Plugin chạy
-            cách ly tuyệt đối trong sandbox và chỉ làm được những gì người dùng cấp quyền.
+            cách ly tuyệt đối trong sandbox và chỉ làm được những gì người dùng cấp quyền — ghim plugin
+            dùng nhanh ở <strong className="text-slate-200">mọi trang</strong> qua Plugin Dock (F8/F9).
           </p>
         </div>
 
@@ -1268,7 +1296,7 @@ function PluginsSection() {
           </div>
 
           <div className="lg:col-span-2 surface-card rounded-2xl p-6 space-y-4">
-            <h3 className="text-base font-bold text-white">Plugin mẫu trong Store</h3>
+            <h3 className="text-base font-bold text-white">Plugin trong Store (7)</h3>
             <ul className="space-y-3 text-xs">
               <li className="flex items-start gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">⏱️</span>
@@ -1285,17 +1313,38 @@ function PluginsSection() {
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center shrink-0">💬</span>
-                <div>
-                  <div className="font-bold text-slate-200">Chat Bubble Demo (Messenger)</div>
-                  <div className="text-slate-400">Bong bóng chat nổi mọi trang, typing indicator, bot phản hồi.</div>
-                </div>
-              </li>
-              <li className="flex items-start gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">🖊️</span>
                 <div>
                   <div className="font-bold text-slate-200">Bảng Trắng Whiteboard</div>
                   <div className="text-slate-400">Bút/highlighter/tẩy, hình khối, undo/redo, mẫu kẻ dòng kẻ ô — xuất PNG.</div>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0">🎯</span>
+                <div>
+                  <div className="font-bold text-slate-200">QuizForge — Xưởng Đố Vui</div>
+                  <div className="text-slate-400">Tạo bộ câu hỏi thi đấu nhanh, lưu theo từng người dùng.</div>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">📖</span>
+                <div>
+                  <div className="font-bold text-slate-200">Từ Điển AnyCourse (Anh–Việt)</div>
+                  <div className="text-slate-400">Bôi đen tra nhanh: 2.000 từ offline kèm IPA + phát âm; ngoài lõi tra AI BYOK/MyMemory.</div>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">🀄</span>
+                <div>
+                  <div className="font-bold text-slate-200">Từ Điền Hán Ngữ (HSK 3.0)</div>
+                  <div className="text-slate-400">11.092 từ HSK 1–9 + 214 bộ thủ Thiều Chửu + Hán–Việt — offline 100%.</div>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center shrink-0">💬</span>
+                <div>
+                  <div className="font-bold text-slate-200">Chat Bubble Demo (Messenger)</div>
+                  <div className="text-slate-400">Bong bóng chat nổi mọi trang, typing indicator, bot phản hồi.</div>
                 </div>
               </li>
             </ul>
@@ -1346,12 +1395,15 @@ function DesktopDownloadSection() {
                 <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-mono">
                   ✓ macOS (.dmg x64 &amp; arm64)
                 </span>
+                <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-blue-300 font-mono">
+                  ✓ Tự động cập nhật trong ứng dụng (GitHub Releases)
+                </span>
                 <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-emerald-400 font-mono">
                   ✓ Miễn phí 100% cho cá nhân & giáo viên
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-relaxed">
-                Bộ cài được build tự động bởi GitHub Actions trên cả ba nền tảng. Bản macOS chưa ký số — lần đầu mở bằng chuột phải → Open. Chưa thấy bản build phù hợp? <a href="#deploy" className="text-blue-400 hover:underline">Tự đóng gói từ mã nguồn trong vài phút</a>.
+                Bộ cài được build tự động bởi GitHub Actions trên cả ba nền tảng; app tự nhận bản mới qua electron-updater và cập nhật một cú bấm. Bản macOS chưa ký số — lần đầu mở bằng chuột phải → Open. Chưa thấy bản build phù hợp? <a href="#deploy" className="text-blue-400 hover:underline">Tự đóng gói từ mã nguồn trong vài phút</a>.
               </p>
             </div>
 
@@ -1749,10 +1801,10 @@ function RoadmapSection() {
           detail: 'cloudflared tự tải + watchdog tự heal khi gãy; sức chứa thực nghiệm 100-300 học viên cho quiz/nội dung văn bản; hiển thị badge nhà cung cấp tunnel ngay trong panel chia sẻ.'
         },
         {
-          name: 'Plugin SDK v1 + Kho Plugin trong ứng dụng',
+          name: 'Plugin SDK v1 + Dock Toàn App + 7 Plugin Cộng Đồng',
           status: 'done',
           percent: 100,
-          detail: 'Sandbox iframe cách ly, 3 slot (tool / dashboard-widget / floating), import-export .acplugin.json, store từ xa ký số ed25519; 4 plugin first-party (Pomodoro, Cân bằng hoá học, Chat demo, Bảng trắng).'
+          detail: 'Sandbox iframe cách ly, 3 slot (tool / dashboard-widget / floating) + Plugin Dock ghim plugin dùng nhanh ở mọi trang, import-export .acplugin.json, store từ xa ký số ed25519; 7 plugin: Pomodoro, Cân bằng hoá học, Chat demo, Bảng trắng, QuizForge, Từ Điển AnyCourse (Anh–Việt offline), Từ Điền Hán Ngữ (HSK 3.0 + 214 bộ thủ, offline 100%).'
         },
         {
           name: 'Đồng Bộ Offline-First Thật (Sync IPC)',
@@ -1761,16 +1813,22 @@ function RoadmapSection() {
           detail: 'Sync IPC main-process ↔ server, dict cache dùng offline, scheduler jobs nền và setup wizard /setup cho thiết bị mới; upload cloud còn trong lộ trình.'
         },
         {
-          name: 'Đóng Gói Đa Nền Tảng + CI Release 3-OS',
+          name: 'Đóng Gói Đa Nền Tảng + CI Release 3-OS + Auto-Update',
           status: 'done',
           percent: 100,
-          detail: 'Windows NSIS, Linux AppImage/.deb/.tar.gz, macOS dmg/zip (x64+arm64); push tag v* → GitHub Actions build trên runner native, smoke test bản đóng gói và draft Release tự động.'
+          detail: 'Windows NSIS, Linux AppImage/.deb/.tar.gz, macOS dmg/zip (x64+arm64); push tag v* → GitHub Actions build trên runner native, smoke test bản đóng gói và draft Release tự động; electron-updater cập nhật bản mới ngay trong app (banner + 1-click).'
         },
         {
           name: 'Xuất Bản GitHub Tổ Chức anycoursevn',
           status: 'done',
           percent: 100,
           detail: '3 repo: anycourse-desktop (AGPL public), anycourse-platform (private), anycourse-home; guard tự động check-boundary giữ ranh giới core/SaaS trước mỗi lần export.'
+        },
+        {
+          name: 'Soạn Bài Rich-Text Notion-Style + Pages Workspace',
+          status: 'done',
+          percent: 95,
+          detail: 'Block editor Tiptap (slash menu, kéo-thả, toggle lồng nhau) dùng chung Lesson/Exam/Question Bank; workspace trang lồng nhau cá nhân + tổ chức với 5 loại node, chia sẻ nhánh user-to-user và link công khai tạm thời — sync parity SQLite ↔ Supabase ↔ .NET.'
         }
       ]
     },
@@ -1852,7 +1910,7 @@ function RoadmapSection() {
             Lộ Trình Tính Năng Chi Tiết (Roadmap)
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Báo cáo thẩm định kỹ thuật sâu từ mã nguồn thật: <strong className="text-white">Tiến độ tổng thể đạt ~65%</strong>, trong đó <strong className="text-emerald-400">70% phân hệ cốt lõi đã chạy dữ liệu thật 100%</strong> (Zero-Mock) và <strong className="text-emerald-400">giai đoạn Local-First Desktop đã nghiệm thu 2026-09</strong>.
+            Báo cáo thẩm định kỹ thuật sâu từ mã nguồn thật: <strong className="text-white">Tiến độ tổng thể đạt ~68%</strong>, trong đó <strong className="text-emerald-400">75% phân hệ cốt lõi đã chạy dữ liệu thật 100%</strong> (Zero-Mock) và <strong className="text-emerald-400">giai đoạn Local-First Desktop đã nghiệm thu 2026-09</strong>.
           </p>
         </div>
 
@@ -1862,14 +1920,14 @@ function RoadmapSection() {
             <div>
               <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Tiến Độ Dự Án Tổng Thể</div>
               <div className="text-2xl font-black text-white flex items-center gap-2">
-                <span>65% Hoàn Thiện</span>
+                <span>68% Hoàn Thiện</span>
                 <span className="text-xs font-normal text-slate-400">(5 phân kỳ phát triển)</span>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2 flex-wrap text-xs">
               <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" /> 70% Core Platform (Zero-Mock)
+                <CheckCircle2 className="w-3.5 h-3.5" /> 75% Core Platform (Zero-Mock)
               </span>
               <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5" /> 20% Đang Hoàn Thiện
@@ -1882,9 +1940,9 @@ function RoadmapSection() {
 
           {/* Progress Stack Bar */}
           <div className="h-3 w-full bg-slate-900 rounded-full overflow-hidden flex border border-slate-800">
-            <div className="bg-emerald-500 h-full transition-all" style={{ width: '60%' }} title="Đã xong 100% chạy thật" />
+            <div className="bg-emerald-500 h-full transition-all" style={{ width: '63%' }} title="Đã xong 100% chạy thật" />
             <div className="bg-amber-500 h-full transition-all" style={{ width: '15%' }} title="Đang hoàn thiện Giai đoạn 2" />
-            <div className="bg-blue-500/40 h-full transition-all" style={{ width: '15%' }} title="Kế hoạch Giai đoạn 3" />
+            <div className="bg-blue-500/40 h-full transition-all" style={{ width: '12%' }} title="Kế hoạch Giai đoạn 3" />
             <div className="bg-slate-800 h-full transition-all" style={{ width: '10%' }} title="Kế hoạch Giai đoạn 4" />
           </div>
 
@@ -1893,7 +1951,7 @@ function RoadmapSection() {
             <div className="space-y-1">
               <span className="text-slate-400">Kiểm thử tự động:</span>
               <div className="font-bold text-emerald-400 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" /> 301 check backend · 27 E2E · 18 .NET
+                <CheckCircle2 className="w-3.5 h-3.5" /> 159 API checks · 25 E2E specs · 41 .NET tests
               </div>
             </div>
             <div className="space-y-1">
@@ -2019,9 +2077,10 @@ function RoadmapSection() {
               <Zap className="w-4 h-4" /> Kế Hoạch Hành Động Ưu Tiên Tiếp Theo (Next Sprints)
             </div>
             <div className="text-sm text-slate-200">
-              1. <strong>Sprint 1</strong>: Webhook Casso/SeAPay thu học phí tự động &amp; hóa đơn VAT &rarr;
-              2. <strong>Sprint 2</strong>: Deploy Cloud VPS Staging, Domain SSL &amp; Pilot trung tâm đối tác &rarr;
-              3. <strong>Sprint 3</strong>: Ký số installer (EV/OV) + AI Cloud proxy theo quota org.
+              1. <strong>Sprint 1</strong>: RAG Offline POC — chat với dữ liệu cá nhân (embedder ONNX local + generator BYOK sẵn có) &rarr;
+              2. <strong>Sprint 2</strong>: Webhook Casso/SeAPay thu học phí tự động &amp; hóa đơn VAT &rarr;
+              3. <strong>Sprint 3</strong>: Deploy Cloud VPS Staging, Domain SSL &amp; Pilot trung tâm đối tác &rarr;
+              4. <strong>Sprint 4</strong>: Tag release bật auto-update toàn bộ người dùng + ký số installer (EV/OV) + mobile native.
             </div>
           </div>
           <a
